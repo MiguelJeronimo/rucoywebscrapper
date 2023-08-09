@@ -1,6 +1,5 @@
 import Jsoup.Scrapper
-import guildss.GuildsData
-import news.New
+import API.news.New
 
 fun main(args: Array<String>) {
     var guildName = "Last Time"

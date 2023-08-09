@@ -1,4 +1,4 @@
-package guildss
+package API.guildss
 
 import model.Guild
 import model.Members

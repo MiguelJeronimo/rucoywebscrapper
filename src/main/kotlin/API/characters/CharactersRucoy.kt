@@ -1,4 +1,4 @@
-package characters
+package API.characters
 
 
 import model.CharactersDataGeneral
