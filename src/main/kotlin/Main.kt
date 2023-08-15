@@ -1,14 +1,27 @@
+import API.creatures.Creatures
 import Jsoup.Scrapper
 import API.news.New
+import kotlin.reflect.typeOf
 
 fun main(args: Array<String>) {
     var guildName = "Last Time"
     var url = "https://www.rucoyonline.com/news"
-    val scrapper = Scrapper().Soup(url)
-    val newsRucoy = New().NewsRucoy(scrapper)
-    for (data in newsRucoy.newData){
-        println(data)
+    val urlCreatures = "https://rucoy-online.fandom.com/wiki/Goblin_Lord"
+    val scrapper = Scrapper().Soup(urlCreatures)
+    val creatureProfile = Creatures().getGeneralDataCreature(scrapper)
+    println(creatureProfile.name)
+    println(creatureProfile.level)
+    println(creatureProfile.hitpoints)
+    println(creatureProfile.experience)
+    println(creatureProfile.spawn)
+    println("#############################Loot Items############")
+    creatureProfile.items.forEach { items->
+        println("Name: ${items.name}, url: ${items.url}")
     }
+    //val newsRucoy = New().NewsRucoy(scrapper)
+    /*for (data in newsRucoy.newData){
+        println(data)
+    }*/
     //val searchCharacters = CharactersRucoy().searchCharacter(scrapper)
     //val highscoresExperience = GuildsData().dataGuild(scrapper)
     /*for (highscore in highscoresExperience){
