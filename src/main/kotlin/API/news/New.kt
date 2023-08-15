@@ -1,4 +1,4 @@
-package news
+package API.news
 
 import model.content
 import model.new_data
