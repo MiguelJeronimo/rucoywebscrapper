@@ -27,7 +27,7 @@ data class error(val error:String)
 data class Creatures(
     val name: String,
     val url_img:String,
-    val level: String,
+    val level: String?,
     val hitpoints: String,
     val experience: String,
     val spawn: String,
