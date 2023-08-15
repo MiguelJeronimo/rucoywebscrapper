@@ -6,10 +6,11 @@ import kotlin.reflect.typeOf
 fun main(args: Array<String>) {
     var guildName = "Last Time"
     var url = "https://www.rucoyonline.com/news"
-    val urlCreatures = "https://rucoy-online.fandom.com/wiki/Goblin_Lord"
+    val urlCreatures = "https://rucoy-online.fandom.com/wiki/Goblin Lord"
     val scrapper = Scrapper().Soup(urlCreatures)
     val creatureProfile = Creatures().getGeneralDataCreature(scrapper)
     println(creatureProfile.name)
+    println(creatureProfile.url_img)
     println(creatureProfile.level)
     println(creatureProfile.hitpoints)
     println(creatureProfile.experience)
