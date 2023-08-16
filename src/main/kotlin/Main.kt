@@ -6,7 +6,7 @@ import kotlin.reflect.typeOf
 fun main(args: Array<String>) {
     var guildName = "Last Time"
     var url = "https://www.rucoyonline.com/news"
-    val urlCreatures = "https://rucoy-online.fandom.com/wiki/Goblin Lord"
+    val urlCreatures = "https://rucoy-online.fandom.com/wiki/Demon"
     val scrapper = Scrapper().Soup(urlCreatures)
     val creatureProfile = Creatures().getGeneralDataCreature(scrapper)
     println(creatureProfile.name)
@@ -15,6 +15,7 @@ fun main(args: Array<String>) {
     println(creatureProfile.hitpoints)
     println(creatureProfile.experience)
     println(creatureProfile.spawn)
+    println(creatureProfile.genera_information)
     println("#############################Loot Items############")
     creatureProfile.items.forEach { items->
         println("Name: ${items.name}, url: ${items.url}")

@@ -16,6 +16,7 @@ class Creatures {
         val hp = creatureAtributte[1].text()
         val exp = creatureAtributte[2].text()
         val spawn = creatureAtributte[3].text()
+        val generalInformation = scrapper.select("p").text()
         for (loot in lootList){
             val center = loot.select("tr")
             for (data in center){
@@ -37,7 +38,7 @@ class Creatures {
         if (level == "none"){
             level = null
         }
-        val creatureProfile = Creatures(creatureName,urlImgCreature,level, hp,exp,spawn, arrayItemsCreature)
+        val creatureProfile = Creatures(creatureName,urlImgCreature,level, hp,exp,spawn,generalInformation, arrayItemsCreature)
         return creatureProfile
     }
 }

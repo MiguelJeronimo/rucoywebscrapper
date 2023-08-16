@@ -31,6 +31,7 @@ data class Creatures(
     val hitpoints: String,
     val experience: String,
     val spawn: String,
+    val genera_information: String,
     val items: ArrayList<ItemsCreatures>
 )
 data class ItemsCreatures(val name: String, val url: String?)
