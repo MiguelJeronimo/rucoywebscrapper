@@ -34,5 +34,13 @@ data class Creatures(
     val genera_information: String,
     val items: ArrayList<ItemsCreatures>
 )
-data class ItemsCreatures(val name: String, val url: String?)
-
+data class ItemsCreatures(var name: String?, var url: String?)
+data class ItemsRucoyData(val itemsRucoy: ArrayList<ItemRucoyData>)
+data class ItemRucoyData(
+    val name:String,
+    val img: String,
+    val damage: MutableList<String>,
+    val buy_npc: MutableList<String>,
+    val drop_by: MutableList<String>,
+    val sell_npc: MutableList<String>
+)
