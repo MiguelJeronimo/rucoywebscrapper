@@ -1,21 +1,18 @@
-import API.Items.ItemsRucoy
-import API.creatures.Creatures
+import API.Items.Potions.PotionsRucoy
 import Jsoup.Scrapper
-import API.news.New
-import kotlin.reflect.typeOf
 
 fun main(args: Array<String>) {
     var guildName = "Last Time"
     var url = "https://www.rucoyonline.com/news"
     //val urlCreatures = "https://rucoy-online.fandom.com/wiki/Evil Santa"
     val urlCreatures = "https://rucoy-online.fandom.com/wiki/Dragon Warden"
-    val urlItems = "https://rucoy-online.fandom.com/wiki/Sword_List"
-    val scrapper = Scrapper().Soup(urlCreatures)
-    val creatureProfile = Creatures().getGeneralDataCreature(scrapper)
-    //Creatures().ALGO(scrapper)
-    creatureProfile.items.forEach {item ->
-        println(item)
-    }
+    //val urlItems = "https://rucoy-online.fandom.com/wiki/Sword_List"
+    val urlItems = "https://rucoy-online.fandom.com/wiki/Potions_List"
+    val scrapper = Scrapper().Soup(urlItems)
+    val creatureProfile = PotionsRucoy().getItemPotionsRucoy(scrapper)
+    /*creatureProfile?.itemsRucoy?.forEach { data->
+        println(data)
+    }*/
 
     //val newsRucoy = New().NewsRucoy(scrapper)
     /*for (data in newsRucoy.newData){
