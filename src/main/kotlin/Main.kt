@@ -1,18 +1,21 @@
 import API.Items.Potions.PotionsRucoy
+import API.Items.Swords.SwordListRucoy
 import Jsoup.Scrapper
 
 fun main(args: Array<String>) {
     var guildName = "Last Time"
     var url = "https://www.rucoyonline.com/news"
     //val urlCreatures = "https://rucoy-online.fandom.com/wiki/Evil Santa"
-    val urlCreatures = "https://rucoy-online.fandom.com/wiki/Dragon Warden"
+    //val urlCreatures = "https://rucoy-online.fandom.com/wiki/Dragon Warden"
     //val urlItems = "https://rucoy-online.fandom.com/wiki/Sword_List"
-    val urlItems = "https://rucoy-online.fandom.com/wiki/Potions_List"
+    val urlItems = "https://rucoy-online.fandom.com/wiki/Bow_List"
+    //val urlItems = "https://rucoy-online.fandom.com/wiki/Potions_List"
     val scrapper = Scrapper().Soup(urlItems)
-    val creatureProfile = PotionsRucoy().getItemPotionsRucoy(scrapper)
-    /*creatureProfile?.itemsRucoy?.forEach { data->
+    //val creatureProfile = PotionsRucoy().getItemPotionsRucoy(scrapper)
+    val creatureProfile = SwordListRucoy().getSwordList(scrapper)
+    creatureProfile?.itemsRucoy?.forEach { data->
         println(data)
-    }*/
+    }
 
     //val newsRucoy = New().NewsRucoy(scrapper)
     /*for (data in newsRucoy.newData){
