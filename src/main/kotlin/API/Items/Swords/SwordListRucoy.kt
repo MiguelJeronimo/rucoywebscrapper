@@ -1,19 +1,30 @@
-package API.Items
+package API.Items.Swords
 
 import model.ItemRucoyData
 import model.ItemsRucoyData
 import org.jsoup.nodes.Document
+import org.jsoup.nodes.Element
 
-class ItemsRucoy {
-
-    fun getItemRucoy(scrapper: Document): ItemsRucoyData? {
+class SwordListRucoy {
+    fun getSwordList(scrapper: Document): ItemsRucoyData {
         val items = scrapper.getElementsByClass("article-table")[1]
         val tr = items.select("tbody").select("tr")
         val itemRucoyData = ArrayList<ItemRucoyData>()
         tr.forEach { data->
-            val imgItem = data.select("img").attr("data-src")
+            var imgItem: String? = null
             val td = data.select("[style=text-align:center;]")
-            val nameItem = td[0].text()
+            var nameItem: String? = null
+            //Validate sword name
+            if (td[0].children().text() == ""){
+                nameItem = td[1].children().text()
+            } else{
+                nameItem = td[0].children().text()
+            }
+            if (data.select("img").attr("data-src") == ""){
+                imgItem = data.select("img").attr("src")
+            } else{
+                imgItem = data.select("img").attr("data-src")
+            }
             val arrayDamage = td[1].children().eachText()
             val arrayBuyNPC = td[2].children().eachText()
             val arrayDropBy = td[3].children().eachText()
@@ -25,7 +36,8 @@ class ItemsRucoy {
                 arrayBuyNPC,
                 arrayDropBy,
                 arraySellNPC
-            ))
+            )
+            )
         }
         return ItemsRucoyData(itemRucoyData)
     }
