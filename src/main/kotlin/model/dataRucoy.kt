@@ -22,7 +22,7 @@ data class CharactersDataGeneral(
 data class newsRucoy(var newData: ArrayList<new_data>)
 data class new_data(var date:String?, var title:String?, var subtittle:String?, var content: content?)
 data class content(var content_array: ArrayList<String>)
-data class error(val error:String)
+data class error(var error: String?)
 //creature profile template
 data class Creatures(
     val name: String,
