@@ -85,6 +85,12 @@ class Training {
                 normal_attack_max_damage.toFloat(),
                 normal_min_raw_damage.toFloat(), normal_max_raw_damage.toFloat()
             )
+            val timeCalculated = formula.calculateTimeKillingMoster(
+                normal_attack_min_damage.toFloat(),
+                normal_attack_max_damage.toFloat(),
+                normalAttackPorcentageDamage.toFloat(),
+                creature.health.toFloat()
+            )
             //PTrain fisico
             val special_attack_min_damage = formula.MinDamage(special_min_raw_damage.toFloat(), creature.defense.toFloat())
             val special_attack_max_damage = formula.MaxDamage(special_max_damage.toFloat(), creature.defense.toFloat())
@@ -123,7 +129,7 @@ class Training {
                     specialAttackPorcentageDamageMagic
                 )
             )
-            println("CREATURE: ${creature.name}, MINATTACK: ${normal_attack_min_damage} ,MAXATTACK: ${normal_attack_max_damage}, DAÑO NORMAL: ${normalAttackPorcentageDamage}%")
+            println("CREATURE: ${creature.name}, MINATTACK: ${normal_attack_min_damage} ,MAXATTACK: ${normal_attack_max_damage}, DAÑO NORMAL: ${normalAttackPorcentageDamage}%, Time: ${formula.convertTime(timeCalculated)}, Numero: ${timeCalculated}")
         }
         println("Skill normal: ${ranks.PorcentageDamage(arrayNormalTrainning)}")
         println("PTrain Special: ${ranks.PorcentageDamage(arrayPTrainnigSpecial)}")

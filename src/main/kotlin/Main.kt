@@ -25,8 +25,8 @@ fun main(args: Array<String>) {
         0
     )*/
     training.trainingCalculator(
-        114,
-        175,
+        277,
+        276,
         5,
         0
     )

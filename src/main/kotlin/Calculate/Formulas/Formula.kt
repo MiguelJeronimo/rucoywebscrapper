@@ -21,7 +21,7 @@ class Formula {
     fun normalMaxRawDamage(stat: Float, weapon: Float, base: Float): Int {
         //(B2*(B3/10))+B1/4
         val max_raw_damage = ((stat*weapon)/10)+(base/4)
-        return Math.round(max_raw_damage.toFloat())
+        return Math.round(max_raw_damage)
     }
 
     fun specialMaxDamage(stat: Float, weapon: Float, base: Float): Int {
@@ -61,82 +61,36 @@ class Formula {
         return (normalAttackPorcentageDamage*100).toInt()
     }
 
-/*
-    fun autoCriticDamage(max_raw_damage: Int, mob_defense: Int): Double {
-                                //max_raw_crit_damage
-        val max_critic_damage = (max_raw_damage*1.05) - mob_defense
-        return max_critic_damage
-    }
-
-    //Special Attacks Distances/Mele
-    fun specialPhysicalMaxRawDamage(stat: Int, weapon: Int, base: Int){
-        val max_raw_damage = 1.5*((stat*weapon/10)+(base/4))
-    }
-
-    fun specialPhysicalMaxDamage(max_raw_damage: Int, mob_defense: Int): Int {
-        val max_damage = max_raw_damage - mob_defense
-        return max_damage
-    }
-
-    fun specialPhysicalMinDamage(min_raw_damage: Int, mob_defense: Int): Int {
-        val min_damage = min_raw_damage - mob_defense
-        return min_damage
-    }
-
-    fun specialPhysicalRange(max_damage: Int, min_damage: Int): Int {
-        val range = max_damage - min_damage
-        return range
-    }
-    fun specialPhysicalautoCriticDamage(max_raw_damage: Int, mob_defense: Int): Double {
-        val max_critic_damage = (max_raw_damage*1.05) - mob_defense
-        return max_critic_damage
-    }
-    //Magic Level
-    fun specialMagicMaxRawDamage(stat: Int, weapon: Int, base: Int): Double {
-        val max_raw_damage = 1.5*((1.05*stat*weapon)/10)+((9*base)/32)
-        return max_raw_damage
-    }
-
-    fun specialMagicMaxDamage(max_raw_damage: Int, mob_defense: Int): Int {
-        val max_damage = max_raw_damage - mob_defense
-        return max_damage
-    }
-
-
-
-    fun specialMagicRange(max_damage: Int, min_damage: Int): Int {
-        val range = max_damage - min_damage
-        return range
-    }
-    fun specialMagicCriticDamage(max_raw_damage: Int, mob_defense: Int): Double {
-        val max_critic_damage = (max_raw_damage*1.05) - mob_defense
-        return max_critic_damage
-    }
-    //Presicion de golpe basico
-    fun normalAccuracy(max_raw_damage: Int,min_raw_damage: Int,mob_defense: Int,): Double {
-        var normalAccuracy: Double = ((max_raw_damage - mob_defense)/(max_raw_damage - min_raw_damage)).toDouble()
-        if (normalAccuracy > 1.00){
-            normalAccuracy = 1.00
-        }
-        return normalAccuracy
-    }
     /*
-*     fun autoCriticDamage(max_raw_damage: Int, mob_defense: Int): Double {
-                            //max_raw_crit_damage
-    val max_critic_damage = (max_raw_damage*1.05) - mob_defense
-    return max_critic_damage
-}
-* */
-    fun normalCriticalAccuracy(autoCriticDamage: Double, max_raw_damage: Int, mob_defense: Int): Double {
-        val max_raw_critical_damage = autoCriticDamage + mob_defense
-        var normalCriticalAccuracy: Double = (autoCriticDamage/( max_raw_critical_damage - max_raw_damage))
-        if (normalCriticalAccuracy > 1.00){
-            normalCriticalAccuracy = 1.00
+                               hp/((max_damage+min_damage))*0.5*(porcentajeDamage)
+    * NSHORA(0,0,REDONDEAR.MAS(E23/((G23+F23)*0.5*H23))))
+    * */
+    fun calculateTimeKillingMoster(min_damage: Float, max_damage: Float, porcentageDamage: Float, hp_creature: Float): Double {
+        val sumDamage = max_damage + min_damage
+        val calculateTime: Double
+        if (sumDamage == 0F){
+            calculateTime = 0.0
+        } else{
+            calculateTime = hp_creature/((sumDamage)*0.5*porcentageDamage)
         }
-        return normalCriticalAccuracy
+        return calculateTime
     }
-    fun generalAccuracyBasicAttack(normalAccuracy:Double, normalCriticalAccuracy: Double): Double {
-        val generalAccuracy = (normalAccuracy * 0.99) + (normalCriticalAccuracy*0.01)
-        return generalAccuracy
-    }*/
+
+    fun convertTime(decimal: Double): String {
+        /*val Hora = 0
+        val minutos = Math.ceil(decimal).toInt()
+        //val minutos = decimal.toInt()
+        val segundos = Math.abs(((decimal - minutos) * 60).toInt())*/
+        val hora = 0
+        val minuto = decimal.toInt()
+        val minutos: Int
+        if (minuto > 0){
+            minutos = Math.ceil(decimal).toInt()
+        } else{
+            minutos = decimal.toInt()
+        }
+        val segundos = Math.ceil(((decimal - minuto) * 60)).toInt()
+        //val segundos = ((decimal - horas - (minutos / 60.0)) * 3600).toInt()
+        return String.format("%02d:%02d:%02d",hora, minutos, segundos)
+    }
 }
