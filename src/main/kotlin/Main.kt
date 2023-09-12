@@ -1,5 +1,7 @@
 import API.Items.ItemsProfile.ItemsProfile
+import Calculate.Training
 import Jsoup.Scrapper
+import model.error
 
 fun main(args: Array<String>) {
     var guildName = "Last Time"
@@ -8,9 +10,29 @@ fun main(args: Array<String>) {
     //val urlCreatures = "https://rucoy-online.fandom.com/wiki/Dragon Warden"
     //val urlItems = "https://rucoy-online.fandom.com/wiki/Sword_List"
     val urlItems = "https://rucoy-online.fandom.com/wiki/Bow_List"
-    var items_profile = "https://rucoy-online.fandom.com/wiki/Lava Bow"
+    val items_profile = "https://rucoy-online.fandom.com/wiki/asdasdasd"
+    val training = Training()
+    /*training.trainingCalculator(
+        405,
+        414+13,
+        11,
+        0
+    )*/
+    /*training.trainingCalculator(
+        276,
+        276,
+        5,
+        0
+    )*/
+    training.trainingCalculator(
+        277,
+        276,
+        5,
+        0
+    )
     //val urlItems = "https://rucoy-online.fandom.com/wiki/Potions_List"
     //val creatureProfile = PotionsRucoy().getItemPotionsRucoy(scrapper)
+    /*val error = error(null)
     try {
         val scrapper = Scrapper().Soup(items_profile)
         val creatureProfile = ItemsProfile().itemsProfile(scrapper)
@@ -23,8 +45,10 @@ fun main(args: Array<String>) {
         println("Cost to buy: ${creatureProfile.cost_to_buy}")
         println("Gold for sell: ${creatureProfile.gold_for_sell}")
     }catch (e: Exception){
-        println(e.message)
-    }
+        //println(e.message)
+        error.error = "Error finding the information, check again"
+        println(error.error)
+    }*/
 
     /*creatureProfile?.itemsRucoy?.forEach { data->
         println(data)
