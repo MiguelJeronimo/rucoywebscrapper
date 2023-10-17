@@ -39,6 +39,8 @@ class SwordListRucoy {
             )
             )
         }
+        //delete first element to arraylist
+        itemRucoyData.removeFirst()
         return ItemsRucoyData(itemRucoyData)
     }
 }
