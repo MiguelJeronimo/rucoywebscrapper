@@ -3,14 +3,12 @@ package Calculate.Formulas
 class Formula {
     //min attack
     fun normalMinRawDamage(stat: Float, weapon: Float, base: Float): Int {
-        //((B2/2)*(B3/10))+B1/4
         val stat_weapon = ((stat*weapon)/20)
         val level = (base/4)
         val min_raw_damage = stat_weapon+level
         return Math.round(min_raw_damage)
     }
     fun specialPhysicalMinSpecialDamage(stat: Float, weapon: Float, base: Float): Int {
-        //((B2/2)*(B3/10)+B1/4)*1.5
         val min_raw_damage = 1.5*normalMinRawDamage(stat, weapon, base)
         return Math.round(min_raw_damage.toFloat())
     }
