@@ -1,4 +1,7 @@
+import API.Items.Bows.BowsListRucoy
 import API.Items.ItemsProfile.ItemsProfile
+import API.Items.Potions.PotionsRucoy
+import API.Items.Swords.SwordListRucoy
 import Calculate.Training
 import Jsoup.Scrapper
 import model.error
@@ -10,8 +13,13 @@ fun main(args: Array<String>) {
     //val urlCreatures = "https://rucoy-online.fandom.com/wiki/Dragon Warden"
     //val urlItems = "https://rucoy-online.fandom.com/wiki/Sword_List"
     val urlItems = "https://rucoy-online.fandom.com/wiki/Bow_List"
-    val items_profile = "https://rucoy-online.fandom.com/wiki/asdasdasd"
-    val training = Training()
+    //val items_profile = "https://rucoy-online.fandom.com/wiki/asdasdasd"
+    //val training = Training()
+    val scrapper = Scrapper().Soup(urlItems)
+    val creatureProfile = BowsListRucoy().getBowList(scrapper = scrapper)
+    creatureProfile.forEach {
+        println(it)
+    }
     /*training.trainingCalculator(
         405,
         414+13,
@@ -24,14 +32,18 @@ fun main(args: Array<String>) {
         5,
         0
     )*/
-    training.trainingCalculator(
+    /*training.trainingCalculator(
         277,
         276,
         5,
         0
-    )
-    //val urlItems = "https://rucoy-online.fandom.com/wiki/Potions_List"
-    //val creatureProfile = PotionsRucoy().getItemPotionsRucoy(scrapper)
+    )*/
+    /*val urlItems = "https://rucoy-online.fandom.com/wiki/Potions_List"
+    val scrapper = Scrapper().Soup(urlItems)
+    val creatureProfile = PotionsRucoy().getItemPotionsRucoy(scrapper = scrapper)
+    for (data in creatureProfile){
+        println(data)
+    }*/
     /*val error = error(null)
     try {
         val scrapper = Scrapper().Soup(items_profile)
