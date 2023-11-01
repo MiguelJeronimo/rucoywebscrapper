@@ -2,6 +2,7 @@ import API.Items.Bows.BowsListRucoy
 import API.Items.ItemsProfile.ItemsProfile
 import API.Items.Potions.PotionsRucoy
 import API.Items.Swords.SwordListRucoy
+import API.Items.Wands.WandsListRucoy
 import Calculate.Training
 import Jsoup.Scrapper
 import model.error
@@ -11,13 +12,13 @@ fun main(args: Array<String>) {
     var url = "https://www.rucoyonline.com/news"
     //val urlCreatures = "https://rucoy-online.fandom.com/wiki/Evil Santa"
     //val urlCreatures = "https://rucoy-online.fandom.com/wiki/Dragon Warden"
-    //val urlItems = "https://rucoy-online.fandom.com/wiki/Sword_List"
-    val urlItems = "https://rucoy-online.fandom.com/wiki/Bow_List"
+    val urlItems = "https://rucoy-online.fandom.com/wiki/Sword_List"
+    //val urlItems = "https://rucoy-online.fandom.com/wiki/Wand_List"
     //val items_profile = "https://rucoy-online.fandom.com/wiki/asdasdasd"
     //val training = Training()
     val scrapper = Scrapper().Soup(urlItems)
-    val creatureProfile = BowsListRucoy().getBowList(scrapper = scrapper)
-    creatureProfile.forEach {
+    val creatureProfile = SwordListRucoy().getSwordList(scrapper = scrapper)
+    creatureProfile.itemsRucoy.forEach {
         println(it)
     }
     /*training.trainingCalculator(
