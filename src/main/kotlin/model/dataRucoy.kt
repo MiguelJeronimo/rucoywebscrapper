@@ -63,3 +63,8 @@ data class ItemProfile(
     val cost_to_buy: String,
     val gold_for_sell: String
 )
+
+data class Category(
+    val url: String,
+    val category: String
+)
