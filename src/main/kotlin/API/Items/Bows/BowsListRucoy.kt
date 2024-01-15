@@ -2,6 +2,7 @@ package API.Items.Bows
 
 import model.ItemRucoyData
 import org.jsoup.nodes.Document
+import java.util.*
 
 class BowsListRucoy {
     fun getBowList(scrapper: Document): ArrayList<ItemRucoyData> {
