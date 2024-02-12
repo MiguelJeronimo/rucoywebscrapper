@@ -1,3 +1,5 @@
+import API.guildss.Guilds
+import Jsoup.Scrapper
 import botTrainSkills.Damage.DamageCalculator
 import botTrainSkills.PowerTrainner.PowerTrainner
 import botTrainSkills.Train.Calculate
@@ -6,52 +8,52 @@ import model.Mob
 fun main(args: Array<String>) {
     var guildName = "Last Time"
     //val trainer = Calculate().train(406,415,0, 5)
-    val mobs = arrayOf(
-        /*00*/ /*P*/Mob("Rat Lv.1",  4, 25),  /*01*/ /*P*/
-        Mob("Rat Lv.3", 7, 35),  /*02*/ /*P*/
-        Mob("Crow Lv.6",  13, 40),  /*03*/ /*P*/
-        Mob("Wolf Lv.9",  17, 50),  /*04*/ /*P*/
-        Mob("Scorpion Lv.12",  18, 50),  /*05*/ /*P*/
-        Mob("Cobra Lv.13",  18, 50),  /*06*/ /*P*/
-        Mob("Worm Lv.14",  19, 55),  /*07*/ /*P*/
-        Mob("Goblin Lv.15",  21, 60),  /*08*/ /*P*/
-        Mob("Mummy Lv.25",  36, 80),  /*09*/ /*P*/
-        Mob("Pharaoh Lv.35",  51, 100),  /*10*/ /*P*/
-        Mob("Assassin Lv.45",  71, 120),  /*11*/ /*P*/
-        Mob("Assassin Lv.50",  81, 140),  /*12*/ /*P*/
-        Mob("Assassin Ninja Lv.55",  91, 160),  /*13*/
-        Mob("Skeleton Archer Lv.80",  101, 300),  /*14*/ /*P*/
-        Mob("Zombie Lv.65", 106, 200),  /*15*/ /*P*/
-        Mob("Skeleton Lv.75",  121, 300),  /*16*/ /*P*/
-        Mob("Skeleton Warrior Lv.90",  146, 375),  /*17*/ /*P*/
-        Mob("Vampire Lv.100",  171, 450),  /*18*/ /*P*/
-        Mob("Vampire Lv.110",  186, 530),  /*19*/
-        Mob("Drow Ranger Lv.125",  191, 600),  /*20*/
-        Mob("Drow Mage Lv. 130",  191, 600),  /*21*/ /*P*/
-        Mob("Drow Assassin Lv.120",  221, 620),  /*22*/
-        Mob("Drow Sorceress Lv.140",  221, 600),  /*23*/ /*P*/
-        Mob("Drow Fighter Lv.135",  246, 680),  /*24*/
-        Mob("Lizard Archer Lv.160",  271, 650),  /*25*/
-        Mob("Lizard Shaman Lv.170",  276, 600),  /*26*/
-        Mob("Dead Eyes Lv.170",  276, 600),  /*27*/ /*P*/
-        Mob("Lizard Warrior Lv.150",  301, 680),  /*28*/ /*P*/
-        Mob("Djinn Lv.150",  301, 640),  /*29*/
-        Mob("Lizard High Shaman Lv.190",  326, 740),  /*30*/ /*P*/
-        Mob("Gargoyle Lv.190",  326, 740),  /*31*/
-        Mob("Dragon Hatchling Lv. 240",  331, 10000),  /*32*/ /*P*/
-        Mob("Lizard Captain lv.180",  361, 815),  /*33*/
-        Mob("Dragon Lv.250",  501, 20000),  /*34*/ /*P*/
-        Mob("Minotaur Lv.225",  511, 4250),  /*35*/ /*P*/
-        Mob("Minotaur Lv.250",  591, 5000),  /*36*/
-        Mob("Dragon Warden Lv.280",  626, 30000),  /*37*/
-        Mob("Ice Elemental Lv.300",  676, 40000),  /*38*/ /*P*/
-        Mob("Minotaur Lv.275",  681, 5750),  /*39*/
-        Mob("Ice Dragon Lv.320",  726, 50000),  /*40*/
-        Mob("Yeti Lv.350",  826, 60000),  // new Mob("Lava Golem Lv.375",
-        // new Mob("Orthrus Lv.425",
-        // new Mob("Demon Lv.450",
-
-    )
+//    val mobs = arrayOf(
+//        /*00*/ /*P*/Mob("Rat Lv.1",  4, 25),  /*01*/ /*P*/
+//        Mob("Rat Lv.3", 7, 35),  /*02*/ /*P*/
+//        Mob("Crow Lv.6",  13, 40),  /*03*/ /*P*/
+//        Mob("Wolf Lv.9",  17, 50),  /*04*/ /*P*/
+//        Mob("Scorpion Lv.12",  18, 50),  /*05*/ /*P*/
+//        Mob("Cobra Lv.13",  18, 50),  /*06*/ /*P*/
+//        Mob("Worm Lv.14",  19, 55),  /*07*/ /*P*/
+//        Mob("Goblin Lv.15",  21, 60),  /*08*/ /*P*/
+//        Mob("Mummy Lv.25",  36, 80),  /*09*/ /*P*/
+//        Mob("Pharaoh Lv.35",  51, 100),  /*10*/ /*P*/
+//        Mob("Assassin Lv.45",  71, 120),  /*11*/ /*P*/
+//        Mob("Assassin Lv.50",  81, 140),  /*12*/ /*P*/
+//        Mob("Assassin Ninja Lv.55",  91, 160),  /*13*/
+//        Mob("Skeleton Archer Lv.80",  101, 300),  /*14*/ /*P*/
+//        Mob("Zombie Lv.65", 106, 200),  /*15*/ /*P*/
+//        Mob("Skeleton Lv.75",  121, 300),  /*16*/ /*P*/
+//        Mob("Skeleton Warrior Lv.90",  146, 375),  /*17*/ /*P*/
+//        Mob("Vampire Lv.100",  171, 450),  /*18*/ /*P*/
+//        Mob("Vampire Lv.110",  186, 530),  /*19*/
+//        Mob("Drow Ranger Lv.125",  191, 600),  /*20*/
+//        Mob("Drow Mage Lv. 130",  191, 600),  /*21*/ /*P*/
+//        Mob("Drow Assassin Lv.120",  221, 620),  /*22*/
+//        Mob("Drow Sorceress Lv.140",  221, 600),  /*23*/ /*P*/
+//        Mob("Drow Fighter Lv.135",  246, 680),  /*24*/
+//        Mob("Lizard Archer Lv.160",  271, 650),  /*25*/
+//        Mob("Lizard Shaman Lv.170",  276, 600),  /*26*/
+//        Mob("Dead Eyes Lv.170",  276, 600),  /*27*/ /*P*/
+//        Mob("Lizard Warrior Lv.150",  301, 680),  /*28*/ /*P*/
+//        Mob("Djinn Lv.150",  301, 640),  /*29*/
+//        Mob("Lizard High Shaman Lv.190",  326, 740),  /*30*/ /*P*/
+//        Mob("Gargoyle Lv.190",  326, 740),  /*31*/
+//        Mob("Dragon Hatchling Lv. 240",  331, 10000),  /*32*/ /*P*/
+//        Mob("Lizard Captain lv.180",  361, 815),  /*33*/
+//        Mob("Dragon Lv.250",  501, 20000),  /*34*/ /*P*/
+//        Mob("Minotaur Lv.225",  511, 4250),  /*35*/ /*P*/
+//        Mob("Minotaur Lv.250",  591, 5000),  /*36*/
+//        Mob("Dragon Warden Lv.280",  626, 30000),  /*37*/
+//        Mob("Ice Elemental Lv.300",  676, 40000),  /*38*/ /*P*/
+//        Mob("Minotaur Lv.275",  681, 5750),  /*39*/
+//        Mob("Ice Dragon Lv.320",  726, 50000),  /*40*/
+//        Mob("Yeti Lv.350",  826, 60000),  // new Mob("Lava Golem Lv.375",
+//        // new Mob("Orthrus Lv.425",
+//        // new Mob("Demon Lv.450",
+//
+//    )
 //    val trainer = Calculate().train(255,255,0, 5, mobs)
 //    val ptrain = PowerTrainner().ptrain(
 //        0,
@@ -62,15 +64,17 @@ fun main(args: Array<String>) {
 //        1,
 //        mobs
 //    )
-    DamageCalculator().damageCalculator(
-        1,
-        40,
-        mobs,
-        278,
-        278,
-        0,
-        25
-    )
+//    val message = DamageCalculator().oneshot(
+//        1,
+//        31,
+//        278,
+//        278,
+//        0,
+//        mobs,
+//        41,
+//        0.0
+//    )
+//    println(message)
     //var url = "https://rucoy-online.fandom.com/wiki/Equipment"
     //val url = "https://www.rucoyonline.com/"
     /*val timer = Timer()
@@ -107,4 +111,12 @@ fun main(args: Array<String>) {
 //    creatureProfile.forEach {
 //        println(it)
 //    }
+    val pager = 20
+    val url = "https://www.rucoyonline.com/guilds?page=$pager"
+    val scrapper = Scrapper().Soup(url)
+    val guilds = Guilds().getGuildsList(scrapper)
+    println(guilds.pager)
+    guilds.list_guild?.forEach {
+       println(it)
+    }
 }

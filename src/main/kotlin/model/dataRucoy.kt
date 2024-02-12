@@ -129,6 +129,16 @@ data class LightArmor(
     val sell_npc: String,
     val drop_by: String?
 )
+
+data class OneShotModel(
+    var base: String?,
+    var creatureName: String?,
+    var creatureHealth: String?,
+    var oneShot: String?,
+    var damage: String?,
+    var criticalDamage: String?,
+    var needStats: String?
+)
 data class Hat(
     val name:String,
     val img: String,
@@ -139,6 +149,13 @@ data class Hat(
     val drop_by: String?
 )
 
+data class WeaponData(
+    val trainString: String,
+    val creatureTrainImg: String,
+    val avarage:String,
+    val need: String,
+    val needCreatureImg: String,
+)
 data class Armor(
     val name:String,
     val img: String,
@@ -179,3 +196,13 @@ data class Category(
     val url: String,
     val category: String
 )
+
+data class GuildsListModel(
+    var list_guild: ArrayList<GuildContent>?,
+    var pager: ArrayList<String>?
+)
+data class GuildContent(
+    var name:String?,
+    var description: String?,
+    var members:String?
+ )
