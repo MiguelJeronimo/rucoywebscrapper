@@ -1,9 +1,5 @@
-import API.guildss.Guilds
+import API.Tibia.Tibia
 import Jsoup.Scrapper
-import botTrainSkills.Damage.DamageCalculator
-import botTrainSkills.PowerTrainner.PowerTrainner
-import botTrainSkills.Train.Calculate
-import model.Mob
 
 fun main(args: Array<String>) {
     var guildName = "Last Time"
@@ -111,12 +107,53 @@ fun main(args: Array<String>) {
 //    creatureProfile.forEach {
 //        println(it)
 //    }
-    val pager = 20
-    val url = "https://www.rucoyonline.com/guilds?page=$pager"
-    val scrapper = Scrapper().Soup(url)
-    val guilds = Guilds().getGuildsList(scrapper)
-    println(guilds.pager)
-    guilds.list_guild?.forEach {
-       println(it)
-    }
+//    val pager = 20
+//    val url = "https://www.rucoyonline.com/guilds?page=$pager"
+//    val scrapper = Scrapper().Soup(url)
+//    val guilds = Guilds().getGuildsList(scrapper)
+//    println(guilds.pager)
+//    guilds.list_guild?.forEach {
+//       println(it)
+//    }
+
+    //TIBIA
+    val url = "https://tibia.fandom.com/wiki/Main_Page"
+    val rashid = "https://tibia.fandom.com/wiki/Rashid"//FUNCIONA
+    val yasir = "https://tibia.fandom.com/wiki/Yasir"//FUNCIONA
+    //dijins blue
+    val horoun = "https://tibia.fandom.com/wiki/Haroun"
+    val nashBob = "https://tibia.fandom.com/wiki/Nah%27Bob"
+    //roshamuul
+    val asnarus = "https://tibia.fandom.com/wiki/Asnarus"
+    //dijings green
+    val alesar = "https://tibia.fandom.com/wiki/Alesar"
+    val yalam = "https://tibia.fandom.com/wiki/Yaman"
+    //farmine npc
+    val esrik = "https://tibia.fandom.com/wiki/Esrik"
+    val alexander = "https://tibia.fandom.com/wiki/Alexander"
+    val tamoril = "https://tibia.fandom.com/wiki/Tamoril"
+    val grizzlyAdams = "https://tibia.fandom.com/wiki/Grizzly_Adams"
+    val scrapper = Scrapper().Soup(grizzlyAdams)
+    val tibia = Tibia(scrapper)
+    val yasirData = tibia.grizzlyAdams()
+    println(yasirData.nameNPC)
+    println(yasirData.imgNPC)
+    println(yasirData.description)
+    println(yasirData)
+
+    //yasirData.items?.forEach { println(it) }
+//    println(yasirData.nameNPC)
+//    println(yasirData.descrption)
+//    println("buying")
+//    yasirData.buyingItems?.forEach { println(it) }
+//    println("spells")
+//    yasirData.sellingItems?.forEach { println(it) }
+//grizli adams
+//    println("Name: ${tibia.nameNPC}")
+//    println("Description: ${tibia.descrption}")
+//    println("BUYING")
+//    tibia.buyingItems?.forEach { println(it) }
+//    println("SELLING")
+//    tibia.sellingItems?.forEach { println(it) }
 }
+
