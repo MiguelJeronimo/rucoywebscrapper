@@ -1,5 +1,7 @@
-import API.Tibia.Tibia
+
 import Jsoup.Scrapper
+import Tibia.CatalogGame
+import Tibia.Tibia
 
 fun main(args: Array<String>) {
     var guildName = "Last Time"
@@ -133,13 +135,24 @@ fun main(args: Array<String>) {
     val alexander = "https://tibia.fandom.com/wiki/Alexander"
     val tamoril = "https://tibia.fandom.com/wiki/Tamoril"
     val grizzlyAdams = "https://tibia.fandom.com/wiki/Grizzly_Adams"
-    val scrapper = Scrapper().Soup(grizzlyAdams)
-    val tibia = Tibia(scrapper)
-    val yasirData = tibia.grizzlyAdams()
-    println(yasirData.nameNPC)
-    println(yasirData.imgNPC)
-    println(yasirData.description)
-    println(yasirData)
+    //val scrapper = Scrapper().Soup(url)
+    val tibia = Tibia().weapons()
+//    val bows = tibia.bows()
+    println("-------------------bows")
+    tibia.weapons().bows.forEach { println(it) }
+    println("--------------------------CrossbowList")
+    tibia.weapons().crossBows.forEach { println(it) }
+    println("-------------------------Flechas")
+    tibia.weapons().arrows.forEach { println(it) }
+    println("-------------------------Dardos")
+    tibia.weapons().bolts.forEach { println(it) }
+    println("-------------------------Throwing")
+    tibia.weapons().throwing.forEach { println(it) }
+//    val yasirData = tibia.grizzlyAdams()
+//    println(yasirData.nameNPC)
+//    println(yasirData.imgNPC)
+//    println(yasirData.description)
+//    println(yasirData)
 
     //yasirData.items?.forEach { println(it) }
 //    println(yasirData.nameNPC)
