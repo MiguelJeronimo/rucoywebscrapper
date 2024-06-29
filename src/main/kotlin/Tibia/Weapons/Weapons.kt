@@ -7,7 +7,7 @@ import API.Tibia.models.Weapons
 import Jsoup.Scrapper
 
 class Weapons(scrapper: Scrapper, baseurl: String) {
-    private val request = scrapper.Soup("${baseurl}Distance_Weapons")
+    private val request = scrapper.Soup("${baseurl}/Distance_Weapons")
     fun weapons(): Weapons {
         return Weapons(
             bows = bows(),

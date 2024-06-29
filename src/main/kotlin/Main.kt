@@ -136,18 +136,20 @@ fun main(args: Array<String>) {
     val tamoril = "https://tibia.fandom.com/wiki/Tamoril"
     val grizzlyAdams = "https://tibia.fandom.com/wiki/Grizzly_Adams"
     //val scrapper = Scrapper().Soup(url)
-    val tibia = Tibia().weapons()
+    val tibia = Tibia().vocations().knight()
+    tibia.spells?.forEach { println(it) }
+    //tibia.forEach { println(it) }
 //    val bows = tibia.bows()
-    println("-------------------bows")
-    tibia.weapons().bows.forEach { println(it) }
-    println("--------------------------CrossbowList")
-    tibia.weapons().crossBows.forEach { println(it) }
-    println("-------------------------Flechas")
-    tibia.weapons().arrows.forEach { println(it) }
-    println("-------------------------Dardos")
-    tibia.weapons().bolts.forEach { println(it) }
-    println("-------------------------Throwing")
-    tibia.weapons().throwing.forEach { println(it) }
+//    println("-------------------bows")
+//    tibia.weapons().bows.forEach { println(it) }
+//    println("--------------------------CrossbowList")
+//    tibia.weapons().crossBows.forEach { println(it) }
+//    println("-------------------------Flechas")
+//    tibia.weapons().arrows.forEach { println(it) }
+//    println("-------------------------Dardos")
+//    tibia.weapons().bolts.forEach { println(it) }
+//    println("-------------------------Throwing")
+//    tibia.weapons().throwing.forEach { println(it) }
 //    val yasirData = tibia.grizzlyAdams()
 //    println(yasirData.nameNPC)
 //    println(yasirData.imgNPC)

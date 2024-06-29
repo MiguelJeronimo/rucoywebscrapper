@@ -53,3 +53,30 @@ data class Throwing(
     val weight: String? = null,
     val npcPrice: String? = null
 )
+
+data class Catalog(
+    val name: String? = null,
+    val image: String? = null,
+)
+
+//Vocations
+data class Vocations(
+    val name: String,
+    val description: String,
+)
+data class Vocation(
+    var description: String? = null,
+    var spells: ArrayList<Spell> ? = null
+)
+
+data class Spell(
+    val name: String? = null,
+    val image: String? = null,
+    val words: String? = null,
+    val premium: String? = null,
+    val level: String? = null,
+    val mana: String? = null,
+    val price: String? = null,
+    val group: String? = null,
+    val effect: String? = null,
+)
