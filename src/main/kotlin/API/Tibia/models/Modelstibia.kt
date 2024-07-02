@@ -66,7 +66,8 @@ data class Vocations(
 )
 data class Vocation(
     var description: String? = null,
-    var spells: ArrayList<Spell> ? = null
+    var spells: ArrayList<Spell> ? = null,
+    var runeSpells: ArrayList<RuneSpell>? = null
 )
 
 data class Spell(
@@ -79,4 +80,16 @@ data class Spell(
     val price: String? = null,
     val group: String? = null,
     val effect: String? = null,
+)
+
+data class RuneSpell(
+    val name: String? = null,
+    val image: String? = null,
+    val words: String? = null,
+    val premium: String? = null,
+    val level: String? = null,
+    val mana: String? = null,
+    val price: String? = null,
+    val group: String? = null,
+    val effect: String? = null
 )

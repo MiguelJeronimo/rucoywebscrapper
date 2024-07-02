@@ -136,8 +136,8 @@ fun main(args: Array<String>) {
     val tamoril = "https://tibia.fandom.com/wiki/Tamoril"
     val grizzlyAdams = "https://tibia.fandom.com/wiki/Grizzly_Adams"
     //val scrapper = Scrapper().Soup(url)
-    val tibia = Tibia().vocations().knight()
-    tibia.spells?.forEach { println(it) }
+    val tibia = Tibia().vocations().paladin()
+    tibia.runeSpells?.forEach { println(it) }
     //tibia.forEach { println(it) }
 //    val bows = tibia.bows()
 //    println("-------------------bows")
