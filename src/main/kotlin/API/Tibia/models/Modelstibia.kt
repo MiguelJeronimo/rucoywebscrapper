@@ -67,6 +67,7 @@ data class Vocations(
 data class Vocation(
     var description: String? = null,
     var spells: ArrayList<Spell> ? = null,
+    var spellsIsNotAvaible: ArrayList<Spell>? = null,
     var runeSpells: ArrayList<RuneSpell>? = null
 )
 
