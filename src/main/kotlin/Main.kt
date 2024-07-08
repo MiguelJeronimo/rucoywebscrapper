@@ -1,6 +1,4 @@
 
-import Jsoup.Scrapper
-import Tibia.CatalogGame
 import Tibia.Tibia
 
 fun main(args: Array<String>) {
@@ -136,14 +134,32 @@ fun main(args: Array<String>) {
     val tamoril = "https://tibia.fandom.com/wiki/Tamoril"
     val grizzlyAdams = "https://tibia.fandom.com/wiki/Grizzly_Adams"
     //val scrapper = Scrapper().Soup(url)
-    val tibia = Tibia().vocations().druid()
-    println(tibia.description)
-    println("--------------------------------*-*-*-*-*-*-*-*-*")
-    tibia.spells?.forEach { println(it) }
-    println("*-*-*-*-*-*-*-*--*-Is not avaibñle*-*-*-*-*-*-*-*-*-*-*-*-*-*-")
-    tibia.spellsIsNotAvaible?.forEach { println(it) }
-    println("*-*-*-*-*-*-*-*--*-RUNES*-*-*-*-*-*-*-*-*-*-*-*-*-*-")
-    tibia.runeSpells?.forEach { println(it) }
+    val tibia = Tibia().items().items()
+    println(tibia.body_equipment?.title)
+    tibia.body_equipment?.array?.forEach { println(it) }
+    println("-*-----*-*-*------------------------**-*-------------------------------*-*-")
+    println(tibia.others?.title)
+    tibia.others?.array?.forEach { println(it) }
+    println("-*-----*-*-*------------------------**-*-------------------------------*-*-")
+    println(tibia.weapons?.title)
+    tibia.weapons?.array?.forEach { println(it) }
+    println("-*-----*-*-*------------------------**-*-------------------------------*-*-")
+    println(tibia.other_items?.title)
+    tibia.other_items?.array?.forEach { println(it) }
+    println("-*-----*-*-*------------------------**-*-------------------------------*-*-")
+    println(tibia.household_items?.title)
+    tibia.household_items?.array?.forEach { println(it) }
+    println("-*-----*-*-*------------------------**-*-------------------------------*-*-")
+    println(tibia.tools_equipment?.title)
+    tibia.tools_equipment?.array?.forEach { println(it) }
+
+//    println(tibia.description)
+//    println("--------------------------------*-*-*-*-*-*-*-*-*")
+//    tibia.spells?.forEach { println(it) }
+//    println("*-*-*-*-*-*-*-*--*-Is not avaibñle*-*-*-*-*-*-*-*-*-*-*-*-*-*-")
+//    tibia.spellsIsNotAvaible?.forEach { println(it) }
+//    println("*-*-*-*-*-*-*-*--*-RUNES*-*-*-*-*-*-*-*-*-*-*-*-*-*-")
+//    tibia.runeSpells?.forEach { println(it) }
     //tibia.forEach { println(it) }
 //    val bows = tibia.bows()
 //    println("-------------------bows")

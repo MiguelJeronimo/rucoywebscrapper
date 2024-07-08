@@ -1,4 +1,4 @@
-package Tibia
+package Tibia.Catalog
 
 import API.Tibia.models.Catalog
 import Jsoup.Scrapper

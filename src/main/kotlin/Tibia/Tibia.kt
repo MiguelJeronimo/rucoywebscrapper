@@ -1,6 +1,8 @@
 package Tibia
 
 import Jsoup.Scrapper
+import Tibia.Catalog.CatalogGame
+import Tibia.Items.Items
 import Tibia.Vocations.Vocations
 import Tibia.Weapons.Weapons as Weapons
 
@@ -16,5 +18,9 @@ class Tibia {
 
     fun vocations(): Vocations {
         return Vocations(scrapper, baseurl)
+    }
+
+    fun items(): Items {
+        return Items(scrapper, baseurl)
     }
 }
