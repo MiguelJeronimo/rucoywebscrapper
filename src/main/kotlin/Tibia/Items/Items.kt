@@ -1,9 +1,9 @@
 package Tibia.Items
 
 import Jsoup.Scrapper
-import model.Tibia.Data
-import model.Tibia.Information
-import model.Tibia.ItemsCatalog
+import model.Tibia.items.Data
+import model.Tibia.items.Information
+import model.Tibia.items.ItemsCatalog
 import org.jsoup.select.Elements
 
 class Items(val scrapper: Scrapper, baseurl: String) {
@@ -28,15 +28,19 @@ class Items(val scrapper: Scrapper, baseurl: String) {
         val arrayData = ArrayList<Data>()
         tBody.forEach {
             if (it.attr("data-src").isEmpty()){
-                arrayData.add(Data(
+                arrayData.add(
+                    Data(
                     img = it.attr("src"),
                     name= it.attr("alt")
-                ))
+                )
+                )
             } else{
-                arrayData.add(Data(
+                arrayData.add(
+                    Data(
                     img = it.attr("data-src"),
                     name= it.attr("alt")
-                ))
+                )
+                )
             }
         }
         return arrayData
@@ -51,15 +55,19 @@ class Items(val scrapper: Scrapper, baseurl: String) {
             val img = it.child(0).select("img").attr("data-src")
             val text = it.child(1).text()
             if (img.isEmpty()){
-                arrayData.add(Data(
+                arrayData.add(
+                    Data(
                     img = img,
                     name= text
-                ))
+                )
+                )
             } else{
-                arrayData.add(Data(
+                arrayData.add(
+                    Data(
                     img = img,
                     name= text
-                ))
+                )
+                )
             }
 
         }
@@ -73,15 +81,19 @@ class Items(val scrapper: Scrapper, baseurl: String) {
         val arrayData = ArrayList<Data>()
         items[1].select("img").forEach {
             if (it.attr("data-src").isEmpty()){
-                arrayData.add(Data(
+                arrayData.add(
+                    Data(
                     img = it.attr("src"),
                     name= it.attr("alt")
-                ))
+                )
+                )
             } else{
-                arrayData.add(Data(
+                arrayData.add(
+                    Data(
                     img = it.attr("data-src"),
                     name= it.attr("alt")
-                ))
+                )
+                )
             }
         }
         return arrayData
@@ -93,15 +105,19 @@ class Items(val scrapper: Scrapper, baseurl: String) {
         val arrayData = ArrayList<Data>()
         items[2].select("img").forEach {
             if (it.attr("data-src").isEmpty()){
-                arrayData.add(Data(
+                arrayData.add(
+                    Data(
                     img = it.attr("src"),
                     name= it.attr("alt")
-                ))
+                )
+                )
             } else{
-                arrayData.add(Data(
+                arrayData.add(
+                    Data(
                     img = it.attr("data-src"),
                     name= it.attr("alt")
-                ))
+                )
+                )
             }
         }
         return arrayData
@@ -112,15 +128,19 @@ class Items(val scrapper: Scrapper, baseurl: String) {
         val arrayData = ArrayList<Data>()
         items[3].select("img").forEach {
             if (it.attr("data-src").isEmpty()){
-                arrayData.add(Data(
+                arrayData.add(
+                    Data(
                     img = it.attr("src"),
                     name= it.attr("alt")
-                ))
+                )
+                )
             } else{
-                arrayData.add(Data(
+                arrayData.add(
+                    Data(
                     img = it.attr("data-src"),
                     name= it.attr("alt")
-                ))
+                )
+                )
             }
         }
         return arrayData
@@ -131,15 +151,19 @@ class Items(val scrapper: Scrapper, baseurl: String) {
         val arrayData = ArrayList<Data>()
         items[4].select("img").forEach {
             if (it.attr("data-src").isEmpty()){
-                arrayData.add(Data(
+                arrayData.add(
+                    Data(
                     img = it.attr("src"),
                     name= it.attr("alt")
-                ))
+                )
+                )
             } else{
-                arrayData.add(Data(
+                arrayData.add(
+                    Data(
                     img = it.attr("data-src"),
                     name= it.attr("alt")
-                ))
+                )
+                )
             }
         }
         return arrayData

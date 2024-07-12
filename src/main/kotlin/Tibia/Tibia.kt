@@ -1,9 +1,12 @@
 package Tibia
 
 import Jsoup.Scrapper
+import Tibia.Blessings.Blessings
 import Tibia.Catalog.CatalogGame
 import Tibia.Items.Items
 import Tibia.Vocations.Vocations
+import com.miguel.tibia_merchants_api.Tibia.Items.bodyequipment.EquipmentList
+import model.Tibia.items.Item
 import Tibia.Weapons.Weapons as Weapons
 
 class Tibia {
@@ -23,4 +26,13 @@ class Tibia {
     fun items(): Items {
         return Items(scrapper, baseurl)
     }
+
+    fun blessings(): Blessings {
+        return Blessings(scrapper, baseurl)
+    }
+
+    fun item(name: String): ArrayList<Item> {
+        return EquipmentList(scrapper, baseurl, name).item()
+    }
+
 }

@@ -134,24 +134,27 @@ fun main(args: Array<String>) {
     val tamoril = "https://tibia.fandom.com/wiki/Tamoril"
     val grizzlyAdams = "https://tibia.fandom.com/wiki/Grizzly_Adams"
     //val scrapper = Scrapper().Soup(url)
-    val tibia = Tibia().items().items()
-    println(tibia.body_equipment?.title)
-    tibia.body_equipment?.array?.forEach { println(it) }
-    println("-*-----*-*-*------------------------**-*-------------------------------*-*-")
-    println(tibia.others?.title)
-    tibia.others?.array?.forEach { println(it) }
-    println("-*-----*-*-*------------------------**-*-------------------------------*-*-")
-    println(tibia.weapons?.title)
-    tibia.weapons?.array?.forEach { println(it) }
-    println("-*-----*-*-*------------------------**-*-------------------------------*-*-")
-    println(tibia.other_items?.title)
-    tibia.other_items?.array?.forEach { println(it) }
-    println("-*-----*-*-*------------------------**-*-------------------------------*-*-")
-    println(tibia.household_items?.title)
-    tibia.household_items?.array?.forEach { println(it) }
-    println("-*-----*-*-*------------------------**-*-------------------------------*-*-")
-    println(tibia.tools_equipment?.title)
-    tibia.tools_equipment?.array?.forEach { println(it) }
+    val tibia = Tibia().item("Helmet")
+    tibia.forEach {
+        println("/********************-/-*/*-/-*/-*/-/-/-")
+        it.also { println(it) }
+    }
+//    tibia.body_equipment?.array?.forEach { println(it) }
+//    println("-*-----*-*-*------------------------**-*-------------------------------*-*-")
+//    println(tibia.others?.title)
+//    tibia.others?.array?.forEach { println(it) }
+//    println("-*-----*-*-*------------------------**-*-------------------------------*-*-")
+//    println(tibia.weapons?.title)
+//    tibia.weapons?.array?.forEach { println(it) }
+//    println("-*-----*-*-*------------------------**-*-------------------------------*-*-")
+//    println(tibia.other_items?.title)
+//    tibia.other_items?.array?.forEach { println(it) }
+//    println("-*-----*-*-*------------------------**-*-------------------------------*-*-")
+//    println(tibia.household_items?.title)
+//    tibia.household_items?.array?.forEach { println(it) }
+//    println("-*-----*-*-*------------------------**-*-------------------------------*-*-")
+//    println(tibia.tools_equipment?.title)
+//    tibia.tools_equipment?.array?.forEach { println(it) }
 
 //    println(tibia.description)
 //    println("--------------------------------*-*-*-*-*-*-*-*-*")
