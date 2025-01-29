@@ -1,11 +1,10 @@
-package API.Items.Bows
+package API.Items.Wands
 
 import model.ItemRucoyData
 import org.jsoup.nodes.Document
-import java.util.*
 
-class BowsListRucoy {
-    fun getBowList(scrapper: Document): ArrayList<ItemRucoyData> {
+class WandsListRucoy {
+    fun getWandsList(scrapper: Document): ArrayList<ItemRucoyData> {
         var bow_list = ArrayList<ItemRucoyData>()
         val items = scrapper.getElementsByClass("article-table")
         val tr = items.select("tbody").select("tr")

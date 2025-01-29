@@ -12,8 +12,10 @@ repositories {
 
 dependencies {
     implementation("org.jsoup:jsoup:1.16.1")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
     testImplementation(kotlin("test"))
     implementation(kotlin("stdlib-jdk8"))
+    implementation(kotlin("script-runtime"))
 }
 
 tasks.test {
