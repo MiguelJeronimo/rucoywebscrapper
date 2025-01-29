@@ -24,7 +24,7 @@ class EquipmentList(scrapper: Scrapper, baseurl: String, name: String) {
                     attributes = att.ifEmpty { null }
                 }
                 resist = data[4].text()
-                slots =data[5].text()
+                slots = data[5].text()
                 classs = data[6].text()
                 data[7].text().also { lvl->
                     level = lvl.ifEmpty{null}
